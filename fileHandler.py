@@ -7,12 +7,12 @@ def readFile(fileName):
 
   for line in Lines:
     # line.replace('\n', '') Não está funcionando
-    line = line.replace('x', '1');
-    line = line.replace('b', '3');
-    line = line.replace('o', '0');
-    line = line.replace('p0sitive', '1');
-    line = line.replace('negative', '0');
-    print(line);
+    line = line.replace('x', '1')
+    line = line.replace('b', '3')
+    line = line.replace('o', '0')
+    line = line.replace('p0sitive', '1')
+    line = line.replace('negative', '0')
+    # print(line);
     vector = line.split(',')
     matrix.append(vector)
 
