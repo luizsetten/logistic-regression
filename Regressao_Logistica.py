@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.core.fromnumeric import shape
 import scipy
 
 #Regressao Logistica implementada com vetorizacao do Numpy. Ao inves de usar loops para iterar em vetores e matrizes, 
@@ -60,10 +61,12 @@ def propaga(w, b, X, Y):
     """
     
     m = X.shape[1] #X.shape[1] retorna o numero de instancias
-    
-    # Propagacao pra frente (Entra com instancias e pesos, sai com ativacao (y_hat) e custo)
-    Y_hat = sigmoide(np.dot(w.T,X)+b)                                # computa todos os y_hat^(i) --> operacao vetorial, Y_hat tem dimensao (1,m), a mesma de Y
-    custo = - 1/m * np.sum(Y*np.log(Y_hat) + (1-Y)*np.log(1-Y_hat))  # computa funcao custo J(w,b) --> operacao vetorial, Y.shape == Y_hat.shape
+
+    Y_hat = sigmoide(np.dot(w.T,X)+b) 
+    termo1 = Y*np.log(Y_hat)
+    termo2 = (1-Y)*np.log(1-Y_hat)
+
+    custo = - 1/m * np.sum(termo1 + termo2)  # computa funcao custo J(w,b) --> operacao vetorial, Y.shape == Y_hat.shape
     
     # Propagacao para tras (encontra os gradientes que irao posteriormente atualizar os pesos de w e b)
     dw = 1/m * np.dot(X,(Y_hat-Y).T)  #encontra o dw medio dentre os dw parciais (dw = 1/m * soma(x^(i)*(y_hat^(i) - y)))  --> operacao vetorial, dw tem dimensao (n_x,1)

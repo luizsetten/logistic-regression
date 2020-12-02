@@ -5,15 +5,16 @@ def readFile(fileName):
   Lines = file.readlines()
   matrix = []
 
-  for line in Lines:
-    # line.replace('\n', '') Não está funcionando
+  for line in Lines:    
     line = line.replace('x', '1')
     line = line.replace('b', '3')
     line = line.replace('o', '0')
     line = line.replace('p0sitive', '1')
     line = line.replace('negative', '0')
-    # print(line);
+    line = line.strip('\n')
     vector = line.split(',')
+    # print(line)
+    # print(vector)
     matrix.append(vector)
 
   return matrix
@@ -33,13 +34,13 @@ def separator(test_train: float, matrix):
 
   # Faz a contagem
   for vector in matrix:
-    if vector[-1] == 'negative\n': 
+    if vector[-1] == '0': 
       countNegative +=1
     else:
       countPositive +=1
-      
+
   for vector in matrix:
-    if vector[-1] == 'negative\n': 
+    if vector[-1] == '0': 
       limitNegative +=1
       if limitNegative < countNegative*test_train:
         # Verificar se é vector[:-1] para pegar todos os elementos menos o ultimo do vetor
