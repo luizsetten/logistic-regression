@@ -1,6 +1,6 @@
 ## A Fazer
 
-* Instalar scipy e numpy
+* Instalar scipy e numpy e matplotlib
 * Manupulador de arquivos para fazer a separação e formatação do banco de dados 70% treino e 30% teste.
 * Alterar o programa (se necessário) para funcionar com a base de dados
 * Implementar uma biblioteca de gráfico (olhar Matplotlib)

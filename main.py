@@ -1,6 +1,7 @@
 from fileHandler import readFile, separator
 from Regressao_Logistica import constroi_modelo
 import numpy as np
+import matplotlib.pyplot as plt
 
 matrix = readFile('tic-tac-toe.data')
 
@@ -16,6 +17,51 @@ print(Y_treino.shape)
 print(X_teste.shape)
 print(Y_teste.shape)
 
+def raioGraficalizador(dados, intervalo, numeroIteracoes, taxaAprendizado):
+  fig,ax = plt.subplots()
+  x = [None] * dados.__len__()
 
+  for i in range(dados.__len__()):
+    x[i] = i*intervalo
 
-constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.1, print_custo=False)
+  ax.plot(x, dados)
+  plt.scatter(x, dados) # scatter são os quadradinhos na linha
+
+  titulo = 'Taxa de aprendizado: {0} | Número de iterações: {1}'
+  titulo = titulo.format(taxaAprendizado, numeroIteracoes)
+  plt.title(titulo)
+  plt.xlabel('Número de iterações') #definindo nome do eixo X
+  plt.ylabel('Custo')
+  taxa = str(taxaAprendizado).replace('.','_')
+  nomeArquivo = '{0}and{1}.png'
+  nomeArquivo = nomeArquivo.format(numeroIteracoes, taxa)
+  plt.savefig(nomeArquivo)
+  plt.show()
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.1, print_custo=False)
+raioGraficalizador(data['custos'], 10, 50, 0.1)
+
+# print(di1)
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.01, print_custo=False)
+raioGraficalizador(data['custos'], 10, 50, 0.01)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.001, print_custo=False)
+raioGraficalizador(data['custos'], 10, 50, 0.001)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.1, print_custo=False)
+raioGraficalizador(data['custos'], 10, 100, 0.1)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.01, print_custo=False)
+raioGraficalizador(data['custos'], 10, 100, 0.01)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.001, print_custo=False)
+raioGraficalizador(data['custos'], 10, 100, 0.001)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.1, print_custo=False)
+raioGraficalizador(data['custos'], 10, 1000, 0.1)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.01, print_custo=False)
+raioGraficalizador(data['custos'], 10, 1000, 0.01)
+
+data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.001, print_custo=False)
+raioGraficalizador(data['custos'], 10, 1000, 0.001)
