@@ -38,30 +38,10 @@ def raioGraficalizador(dados, intervalo, numeroIteracoes, taxaAprendizado):
   plt.savefig(nomeArquivo)
   plt.show()
 
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.1, print_custo=False)
-raioGraficalizador(data['custos'], 10, 50, 0.1)
+vetor1 = [50, 100, 1000]
+vetor2 = [0.1, 0.01, 0.001]
 
-# print(di1)
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.01, print_custo=False)
-raioGraficalizador(data['custos'], 10, 50, 0.01)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 50, 0.001, print_custo=False)
-raioGraficalizador(data['custos'], 10, 50, 0.001)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.1, print_custo=False)
-raioGraficalizador(data['custos'], 10, 100, 0.1)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.01, print_custo=False)
-raioGraficalizador(data['custos'], 10, 100, 0.01)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 100, 0.001, print_custo=False)
-raioGraficalizador(data['custos'], 10, 100, 0.001)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.1, print_custo=False)
-raioGraficalizador(data['custos'], 10, 1000, 0.1)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.01, print_custo=False)
-raioGraficalizador(data['custos'], 10, 1000, 0.01)
-
-data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, 1000, 0.001, print_custo=False)
-raioGraficalizador(data['custos'], 10, 1000, 0.001)
+for i in vetor1:
+  for j in vetor2:
+    data = constroi_modelo(X_treino, Y_treino, X_teste, Y_teste, i, j, print_custo=False)
+    raioGraficalizador(data['custos'], 10, i, j)

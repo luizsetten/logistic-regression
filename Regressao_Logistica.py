@@ -116,7 +116,7 @@ def treina(w, b, X, Y, num_iteracoes, taxa_aprendizado, print_custo = False):
         w = w - taxa_aprendizado * dw       # --> operacao vetorial
         b = b - taxa_aprendizado * db           
         
-        # Guarda os custos a cada 100 iteracoes (epocas)
+        # Guarda os custos a cada 10 iteracoes (epocas)
         if i % 10 == 0:
             custos.append(custo)
         

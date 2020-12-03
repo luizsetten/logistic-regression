@@ -1,13 +1,24 @@
-## A Fazer
+## Sobre
+
+Luiz Gustavo Chinelato Setten
+Victor Elionay Santos Narciso
+
+## Instalação
 
 * Instalar scipy e numpy e matplotlib
-* Manupulador de arquivos para fazer a separação e formatação do banco de dados 70% treino e 30% teste.
-* Alterar o programa (se necessário) para funcionar com a base de dados
-* Implementar uma biblioteca de gráfico (olhar Matplotlib)
-* Fazer relatório
+Por meio dos scripts:
+`pip install scipy`
+`pip install numpy`
+`pip install matplotlib`
 
+## Execução
 
-[main](main.py) Faz toda a execução do programa
+Para rodar o programa basta utiliar o comando:
+`python main.py`
+
+[main.py](main.py) Faz toda a execução do programa
 [Manipulador de arquivo](fileHandler.py) Faz a manipulação do arquivo para a separação dos dados e sua formatação para o programa
 
-Caso tenhas prolemas para instalar o numpy utilize o seguinte comando `pip install numpy==1.19.3 --user` 
+## Observações
+
+>Caso tenhas prolemas para instalar o numpy utilize o seguinte comando `pip install numpy==1.19.3 --user` 
